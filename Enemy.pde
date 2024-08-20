@@ -3,6 +3,7 @@ class Enemy
   
   float xPos, yPos;
   float xSpd, ySpd;
+  float angle;
   
   int size;
   
@@ -12,8 +13,8 @@ class Enemy
   
   public Enemy()
   {
-    size = 50;
-    
+    size = 70;
+    enemy.resize(size,0);
     xPos = random(width); 
     yPos = height + size;
     
@@ -24,7 +25,13 @@ class Enemy
   
   void drawEnemy()
   {
-    circle(xPos, yPos, size);
+    //circle(xPos, yPos, size);
+    push();
+    translate(xPos,yPos);
+    rotate(angle-HALF_PI);
+    image(enemy,0,0);
+    pop();
+    angle = atan2(mouseY-yPos,mouseX-xPos); 
   }
   
   void moveEnemy()

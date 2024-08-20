@@ -3,18 +3,26 @@
 
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
+PImage enemy;
+PImage player;
+
 void setup()
 {
   size(1600,900);
   
-
+  imageMode(CENTER);
+  
+  enemy = loadImage("keese.png");
+  player = loadImage("EarlPumpernickel.png");
+  player.resize(100,0);
 }
 void draw()
 {
   background(0);
   
   //draws the player
-  circle( mouseX,mouseY,50 );
+  image(player ,mouseX ,mouseY );
+  
   
   //draws the enemy
   handleEnemies();
