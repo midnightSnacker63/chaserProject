@@ -3,8 +3,8 @@
 
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
-PImage enemy;
-PImage player;
+PImage enemyPic;
+PImage playerPic;
 
 void setup()
 {
@@ -12,20 +12,23 @@ void setup()
   
   imageMode(CENTER);
   
-  enemy = loadImage("keese.png");
-  player = loadImage("EarlPumpernickel.png");
-  player.resize(100,0);
+  enemyPic = loadImage("keese.png");
+  playerPic = loadImage("EarlPumpernickel.png");
+  playerPic.resize(100,0);
+  
+  noSmooth();
 }
 void draw()
 {
   background(0);
   
   //draws the player
-  image(player ,mouseX ,mouseY );
+  image(playerPic ,mouseX ,mouseY );
   
   
   //draws the enemy
   handleEnemies();
+  //enemies.add( new Enemy());
 }
 
 void handleEnemies()

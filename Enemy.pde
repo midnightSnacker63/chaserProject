@@ -14,7 +14,7 @@ class Enemy
   public Enemy()
   {
     size = 70;
-    enemy.resize(size,0);
+    enemyPic.resize(size,0);
     xPos = random(width); 
     yPos = height + size;
     
@@ -29,7 +29,7 @@ class Enemy
     push();
     translate(xPos,yPos);
     rotate(angle-HALF_PI);
-    image(enemy,0,0);
+    image(enemyPic,0,0);
     pop();
     angle = atan2(mouseY-yPos,mouseX-xPos); 
   }
@@ -53,5 +53,18 @@ class Enemy
     //friction 
     xSpd *= 0.97;
     ySpd *= 0.97;
+    
+    //check for catch
+    if(dist(xPos,yPos,mouseX,mouseY) < size)
+    {
+      push();
+      fill(255);
+      textSize(50);
+      textAlign(CENTER);
+      text("YOU LOST",mouseX,mouseY+50);
+      
+      pop();
+      noLoop();
+    }
   }
 }
