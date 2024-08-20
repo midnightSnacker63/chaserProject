@@ -1,13 +1,13 @@
 //Joshua Poppy
 //second day program
 
-Enemy testEnemy;
+ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
 void setup()
 {
   size(1600,900);
   
-  testEnemy = new Enemy();
+
 }
 void draw()
 {
@@ -17,6 +17,25 @@ void draw()
   circle( mouseX,mouseY,50 );
   
   //draws the enemy
-  testEnemy.drawEnemy();
-  testEnemy.moveEnemy();
+  handleEnemies();
+}
+
+void handleEnemies()
+{
+  for(int i = 0; i < enemies.size(); i++)
+  {
+    if(!enemies.get(i).active)
+    {
+      enemies.remove(i);
+    }
+  }
+  for (Enemy e: enemies)
+  {
+    e.moveEnemy();
+    e.drawEnemy();
+  }
+}
+void mousePressed()
+{
+  enemies.add( new Enemy());
 }
