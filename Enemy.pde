@@ -38,13 +38,13 @@ class Enemy
   {
     //tells what direction to go based on players position
     if(mouseX > xPos)
-      xSpd += 0.5;
+      xSpd += 0.45;
     else
-      xSpd -= 0.5;
+      xSpd -= 0.45;
     if(mouseY > yPos)
-      ySpd += 0.5;
+      ySpd += 0.45;
     else
-      ySpd -= 0.5;
+      ySpd -= 0.45;
     
     //move enemy
     xPos += xSpd;
@@ -62,7 +62,6 @@ class Enemy
       textSize(50);
       textAlign(CENTER);
       text("YOU LOST",mouseX,mouseY+50);
-      
       pop();
       noLoop();
     }
